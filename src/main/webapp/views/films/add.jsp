@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Film | Cinema Hub</title>
+    <title>Add New Film | MovieR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
@@ -35,7 +35,7 @@
     </script>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Navigation Bar -->
+   
     <nav class="bg-primary-700 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -55,7 +55,7 @@
     </nav>
 
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <!-- Page Header -->
+       
         <div class="mb-8">
             <div class="flex items-center gap-2">
                 <a href="${pageContext.request.contextPath}/films" class="text-primary-600 hover:text-primary-700">
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <!-- Form Card -->
+       
         <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto">
             <div class="border-b border-gray-200 px-6 py-4 bg-gray-50">
                 <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
@@ -78,7 +78,7 @@
             
             <form action="${pageContext.request.contextPath}/ajouter-film" method="post" class="p-6 space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Title Field -->
+                    
                     <div class="col-span-2">
                         <label for="titre" class="block text-sm font-medium text-gray-700 mb-1">
                             Film Title <span class="text-red-500">*</span>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
 
-                    <!-- Description Field -->
+                  
                     <div class="col-span-2">
                         <label for="description" class="block text-sm font-medium text-gray-700 mb-1">
                             Description <span class="text-red-500">*</span>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <!-- Genre Field -->
+                 
                     <div>
                         <label for="genre" class="block text-sm font-medium text-gray-700 mb-1">
                             Genre <span class="text-red-500">*</span>
@@ -123,7 +123,7 @@
                         </div>
                     </div>
 
-                    <!-- Release Year Field -->
+                   
                     <div>
                         <label for="anneeSortie" class="block text-sm font-medium text-gray-700 mb-1">
                             Release Year <span class="text-red-500">*</span>
@@ -138,7 +138,7 @@
                         </div>
                     </div>
 
-                    <!-- Poster URL Field -->
+                   
                     <div class="col-span-2">
                         <label for="poster" class="block text-sm font-medium text-gray-700 mb-1">
                             Poster URL
@@ -154,7 +154,7 @@
                         <p class="mt-1 text-xs text-gray-500">Leave empty for a placeholder image</p>
                     </div>
 
-                    <!-- Director Field -->
+                    
                     <div>
                         <label for="realisateurId" class="block text-sm font-medium text-gray-700 mb-1">
                             Director <span class="text-red-500">*</span>
@@ -182,7 +182,7 @@
                         </p>
                     </div>
 
-                    <!-- Actors Field -->
+                 
                     <div>
                         <label for="acteurIds" class="block text-sm font-medium text-gray-700 mb-1">
                             Actors
@@ -220,12 +220,12 @@
         </div>
     </div>
 
-    <!-- Footer -->
+
     <footer class="bg-gray-800 text-white mt-12">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="text-sm">© 2025 MovieF. All rights reserved.</p>
+                    <p class="text-sm">© 2025 MovieR. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white">

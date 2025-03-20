@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un Acteur | Cinema Hub</title>
+    <title>Modifier un Acteur | MovieR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script>
@@ -41,7 +41,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <span class="text-xl font-bold flex items-center gap-2">
-                        <i class="fas fa-film"></i> Cinema Hub
+                        <i class="fas fa-film"></i> MovieR
                     </span>
                 </div>
                 <div class="flex items-center">
@@ -149,7 +149,7 @@
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="text-sm">© 2025 Cinema Hub. All rights reserved.</p>
+                    <p class="text-sm">© 2025 MovieR. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white">

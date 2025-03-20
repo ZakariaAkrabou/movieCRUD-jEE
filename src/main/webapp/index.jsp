@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Management | Cinema Hub</title>
+    <title>Movie Management | MovieR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script>
@@ -34,36 +34,36 @@
     </script>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Navigation Bar -->
+   
     <nav class="bg-primary-700 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <span class="text-xl font-bold flex items-center gap-2">
-                        <i class="fas fa-film"></i> Cinema Hub
+                        <i class="fas fa-film"></i> MovieR
                     </span>
                 </div>
                 <div class="flex items-center">
-                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Dashboard</a>
-                    <a href="${pageContext.request.contextPath}/films" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Films</a>
-                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Directors</a>
-                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Reports</a>
+                    <a href="<%= request.getContextPath() %>/index.jsp" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Dashboard</a>
+                    <a href="films" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Films</a>
+                    <a href="acteurs" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Acteurs</a>
+                    <a href="realisateurs" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-600">Realisateurs</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+  
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <!-- Page Header -->
+      
         <div class="mb-8">
             <h1 class="text-3xl font-bold text-gray-900">Movie Management (CRUD)</h1>
             <p class="mt-1 text-sm text-gray-600">Manage your films, directors, and actors with ease.</p>
         </div>
 
-        <!-- Cards Grid -->
+      
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Réalisateur Card -->
+         
             <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Réalisateur</h2>
                 <p class="text-sm text-gray-600 mb-4">Manage directors and their details.</p>
@@ -72,7 +72,7 @@
                 </a>
             </div>
 
-            <!-- Acteur Card -->
+           
             <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-500">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Acteur</h2>
                 <p class="text-sm text-gray-600 mb-4">Manage actors and their profiles.</p>
@@ -81,7 +81,7 @@
                 </a>
             </div>
 
-            <!-- Films (Admin) Card -->
+            
             <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Films (Admin)</h2>
                 <p class="text-sm text-gray-600 mb-4">Manage films with administrative privileges.</p>
@@ -90,7 +90,7 @@
                 </a>
             </div>
 
-            <!-- Films (User) Card -->
+        
             <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-amber-500">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Films (User)</h2>
                 <p class="text-sm text-gray-600 mb-4">View films as a regular user.</p>
@@ -101,12 +101,12 @@
         </div>
     </div>
 
-    <!-- Footer -->
+  
     <footer class="bg-gray-800 text-white mt-12">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="text-sm">© 2025 Cinema Hub. All rights reserved.</p>
+                    <p class="text-sm">© 2025 MovieR. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white">

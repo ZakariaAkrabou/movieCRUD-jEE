@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier un Réalisateur | Cinema Hub</title>
+    <title>Modifier un Réalisateur | MovieR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script>
@@ -54,9 +54,9 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+   
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <!-- Page Header -->
+      
         <div class="mb-8">
             <div class="flex items-center gap-2">
                 <a href="${pageContext.request.contextPath}/realisateurs" class="text-primary-600 hover:text-primary-700">
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <!-- Form Card -->
+        
         <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto">
             <div class="border-b border-gray-200 px-6 py-4 bg-gray-50">
                 <h2 class="text-xl font-semibold text-gray-800 flex items-center gap-2">
@@ -81,7 +81,7 @@
                 <input type="hidden" name="id" value="${realisateur.id}">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Nom Field -->
+                   
                     <div>
                         <label for="nom" class="block text-sm font-medium text-gray-700 mb-1">
                             Nom <span class="text-red-500">*</span>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
 
-                    <!-- Prénom Field -->
+                    
                     <div>
                         <label for="prenom" class="block text-sm font-medium text-gray-700 mb-1">
                             Prénom <span class="text-red-500">*</span>
@@ -111,7 +111,7 @@
                         </div>
                     </div>
 
-                    <!-- Nationalité Field -->
+                   
                     <div class="col-span-2">
                         <label for="nationalite" class="block text-sm font-medium text-gray-700 mb-1">
                             Nationalité <span class="text-red-500">*</span>
@@ -144,12 +144,12 @@
         </div>
     </div>
 
-    <!-- Footer -->
+   
     <footer class="bg-gray-800 text-white mt-12">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="text-sm">© 2025 Cinema Hub. All rights reserved.</p>
+                    <p class="text-sm">© 2025 MovieR. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white">

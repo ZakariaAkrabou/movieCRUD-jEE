@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Réalisateurs | Cinema Hub</title>
+    <title>Liste des Réalisateurs | MovieR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script>
@@ -35,13 +35,13 @@
     </script>
 </head>
 <body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Navigation Bar -->
+    
     <nav class="bg-primary-700 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <span class="text-xl font-bold flex items-center gap-2">
-                        <i class="fas fa-film"></i> Cinema Hub
+                        <i class="fas fa-film"></i> MovieR
                     </span>
                 </div>
                 <div class="flex items-center">
@@ -54,9 +54,9 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+   
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <!-- Page Header -->
+        
         <div class="mb-8">
             <div class="flex justify-between items-center">
                 <div>
@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <!-- Stats Cards -->
+       
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
                 <div class="flex items-center">
@@ -115,7 +115,7 @@
             </div>
         </div>
 
-        <!-- Table -->
+       
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="border-b border-gray-200 px-6 py-4 bg-gray-50 flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-gray-800">Table des Réalisateurs</h2>
@@ -173,12 +173,12 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    
     <footer class="bg-gray-800 text-white mt-12">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="text-sm">© 2025 Cinema Hub. All rights reserved.</p>
+                    <p class="text-sm">© 2025 MovieR. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white">
