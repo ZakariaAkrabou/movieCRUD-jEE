@@ -76,7 +76,7 @@
                 </h2>
             </div>
             
-            <form action="${pageContext.request.contextPath}/modifier-film" method="post" class="p-6 space-y-6">
+            <form action="${pageContext.request.contextPath}/modifier-film" method="post" class="p-6 space-y-6" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="${film.id}">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -141,21 +141,26 @@
                     </div>
 
                    
-                    <div class="col-span-2">
-                        <label for="poster" class="block text-sm font-medium text-gray-700 mb-1">
-                            Poster URL
-                        </label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-image text-gray-400"></i>
-                            </div>
-                            <input type="text" name="poster" id="poster" value="${film.poster}"
-                                class="pl-10 block w-full h-10 rounded-md border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                                placeholder="Enter URL to film poster image">
-                        </div>
-                        <p class="mt-1 text-xs text-gray-500">Leave empty for a placeholder image</p>
-                    </div>
-
+                <div class="col-span-2">
+    <label for="poster" class="block text-sm font-medium text-gray-700 mb-1">
+        Poster URL
+    </label>
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="fas fa-image text-gray-400"></i>
+        </div>
+        <input type="text" id="file-name-2" readonly 
+            class="pl-10 block w-full h-10 rounded-md border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+            placeholder="Select a poster image" value="${film.poster}">
+        <input type="file" name="poster" id="poster" class="hidden" value="${film.poster}">
+        <label for="poster" class="absolute right-0 inset-y-0 flex items-center">
+            <span class="px-4 h-full flex items-center border-l border-gray-300 bg-gray-50 text-sm text-primary-600 hover:bg-gray-100 cursor-pointer rounded-r-md">
+                <i class="fas fa-upload mr-2"></i> Browse
+            </span>
+        </label>
+    </div>
+    <p class="mt-1 text-xs text-gray-500">Leave empty for a placeholder image</p>
+</div>
                    
                     <div>
                         <label for="realisateurId" class="block text-sm font-medium text-gray-700 mb-1">
@@ -196,12 +201,18 @@
                             <select name="acteurIds" id="acteurIds" multiple
                                 class="pl-10 block w-full rounded-md border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm py-2"
                                 size="5">
-                                <c:forEach var="acteur" items="${acteurs}">
-                                    <option value="${acteur.id}" ${selectedActeurIds.contains(acteur.id) ? 'selected' : ''}>${acteur.nom} ${acteur.prenom}</option>
-                                </c:forEach>
+                                 <c:forEach var="acteur" items="${acteurs}">
+        								<option value="${acteur.id}" 
+            								<c:forEach var="selectedId" items="${selectedActeurIds}">
+                								<c:if test="${acteur.id == selectedId}">selected</c:if>
+            								</c:forEach>
+        								>
+            								${acteur.nom} ${acteur.prenom}
+        								</option>
+    								</c:forEach>
                             </select>
                         </div>
-                        <p class="mt-1 text-xs text-gray-500">Hold Ctrl/Cmd to select multiple actors</p>
+                        <p class="mt-1 text-xs text-gray-500">Hold Ctrl to select multiple actors</p>
                     </div>
                 </div>
 
@@ -237,5 +248,18 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+    // Script to show selected filename in the text input
+    document.getElementById('poster').addEventListener('change', function() {
+        const fileName = this.files[0]?.name || 'No file selected';
+        document.getElementById('file-name-2').value = fileName;
+    });
+    
+    // Initialize with existing value if present
+    if ("${film.poster}") {
+        document.getElementById('file-name-2').value = "${film.poster}";
+    }
+</script>
 </body>
 </html>

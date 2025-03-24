@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,7 +99,9 @@
                     </div>
                     <div class="ml-4">
                         <h3 class="text-sm font-medium text-gray-500">Acteurs</h3>
-                        <p class="text-2xl font-semibold">${films.size()}</p>
+                        <p class="text-2xl font-semibold">8</p>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -125,12 +128,13 @@
                 <table class="w-full border-collapse">
                     <thead class="bg-gray-100 text-gray-700 text-left text-sm uppercase font-semibold tracking-wider">
                         <tr>
-                            <th class="py-3 px-4 border-b border-gray-200">ID</th>
+                           
                             <th class="py-3 px-4 border-b border-gray-200">Title</th>
                             <th class="py-3 px-4 border-b border-gray-200">Description</th>
                             <th class="py-3 px-4 border-b border-gray-200">Genre</th>
                             <th class="py-3 px-4 border-b border-gray-200">Release Year</th>
                             <th class="py-3 px-4 border-b border-gray-200">Poster</th>
+                             <th class="py-3 px-4 border-b border-gray-200">Actors</th>
                             <th class="py-3 px-4 border-b border-gray-200">Director</th>
                             <th class="py-3 px-4 border-b border-gray-200 text-center">Actions</th>
                         </tr>
@@ -138,7 +142,7 @@
                     <tbody class="divide-y divide-gray-200">
                         <c:forEach var="film" items="${films}">
                             <tr class="hover:bg-gray-50 transition text-sm">
-                                <td class="py-3 px-4 border-b border-gray-200">${film.id}</td>
+                                
                                 <td class="py-3 px-4 border-b border-gray-200 font-medium">${film.titre}</td>
                                 <td class="py-3 px-4 border-b border-gray-200 max-w-xs truncate">${film.description}</td>
                                 <td class="py-3 px-4 border-b border-gray-200">
@@ -150,6 +154,15 @@
                                 <td class="py-3 px-4 border-b border-gray-200">
                                     <img src="${film.poster}" alt="${film.titre}" class="w-20 h-12 object-cover rounded-md shadow-sm">
                                 </td>
+                                 <td class="py-3 px-4 border-b border-gray-200">
+                    <div class="flex flex-wrap gap-1 max-w-xs">
+                        <c:forEach var="acteur" items="${film.acteurs}">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs">
+                                ${acteur.prenom} ${acteur.nom}
+                            </span>
+                        </c:forEach>
+                    </div>
+                </td>
                                 <td class="py-3 px-4 border-b border-gray-200">
                                     <span class="flex items-center gap-1">
                                         <i class="fas fa-user-tie text-gray-400"></i>
@@ -166,10 +179,7 @@
                                             class="bg-red-500 text-white px-2 py-1 rounded shadow hover:bg-red-600 transition duration-300 flex items-center gap-1 text-sm">
                                             <i class="fas fa-trash-alt"></i> Delete
                                         </a>
-                                        <a href="${pageContext.request.contextPath}/details-film?id=${film.id}"
-                                            class="bg-primary-500 text-white px-2 py-1 rounded shadow hover:bg-primary-600 transition duration-300 flex items-center gap-1 text-sm">
-                                            <i class="fas fa-eye"></i> View
-                                        </a>
+                                        
                                     </div>
                                 </td>
                             </tr>

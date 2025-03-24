@@ -76,5 +76,27 @@ public class ActeurDAO {
 	        return null;
 	    }
 
-
+	 public int countActeurs() throws SQLException {
+		    String sql = "SELECT COUNT(*) FROM acteur";
+		    Statement stmt = connection.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    if (rs.next()) {
+		        return rs.getInt(1);
+		    }
+		    return 0;
+		}
+	 
+	 public List<Integer> getActeurIdsByFilmId(int filmId) throws SQLException {
+		    List<Integer> acteurIds = new ArrayList<>();
+		    String sql = "SELECT acteur_id FROM acteur_film WHERE film_id = ?";
+		    try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+		        stmt.setInt(1, filmId);
+		        try (ResultSet rs = stmt.executeQuery()) {
+		            while (rs.next()) {
+		                acteurIds.add(rs.getInt("acteur_id"));
+		            }
+		        }
+		    }
+		    return acteurIds;
+		}
 }

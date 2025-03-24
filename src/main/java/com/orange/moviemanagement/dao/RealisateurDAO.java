@@ -73,5 +73,14 @@ public class RealisateurDAO {
         }
         return null;
     }
-
+    
+    public int countRealisateurs() throws SQLException {
+        String sql = "SELECT COUNT(*) FROM realisateur";
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        if (rs.next()) {
+            return rs.getInt(1);
+        }
+        return 0;
+    }
 }

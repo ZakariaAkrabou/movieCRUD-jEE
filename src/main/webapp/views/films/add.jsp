@@ -76,7 +76,7 @@
                 </h2>
             </div>
             
-            <form action="${pageContext.request.contextPath}/ajouter-film" method="post" class="p-6 space-y-6">
+            <form action="${pageContext.request.contextPath}/ajouter-film" method="post" class="p-6 space-y-6" enctype="multipart/form-data">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
                     <div class="col-span-2">
@@ -139,20 +139,27 @@
                     </div>
 
                    
-                    <div class="col-span-2">
-                        <label for="poster" class="block text-sm font-medium text-gray-700 mb-1">
-                            Poster URL
-                        </label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <i class="fas fa-image text-gray-400"></i>
-                            </div>
-                            <input type="text" name="poster" id="poster"
-                                class="pl-10 block w-full h-10 rounded-md border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
-                                placeholder="Enter URL to film poster image">
-                        </div>
-                        <p class="mt-1 text-xs text-gray-500">Leave empty for a placeholder image</p>
-                    </div>
+                  <div class="col-span-2">
+    <label for="poster" class="block text-sm font-medium text-gray-700 mb-1">
+        Poster URL <span class="text-red-500">*</span>
+    </label>
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="fas fa-image text-gray-400"></i>
+        </div>
+        <input type="text" id="file-name" readonly 
+            class="pl-10 block w-full h-10 rounded-md border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+            placeholder="Select a poster image">
+        <input type="file" name="poster" id="poster" required accept="image/*"
+            class="hidden">
+        <label for="poster" class="absolute right-0 inset-y-0 flex items-center">
+            <span class="px-4 h-full flex items-center border-l border-gray-300 bg-gray-50 text-sm text-primary-600 hover:bg-gray-100 cursor-pointer rounded-r-md">
+                <i class="fas fa-upload mr-2"></i> Browse
+            </span>
+        </label>
+    </div>
+    <p class="mt-1 text-xs text-gray-500">Upload a poster image for the film</p>
+</div>
 
                     
                     <div>
@@ -236,5 +243,13 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+    
+    	document.getElementById('poster').addEventListener('change', function() {
+        	const fileName = this.files[0]?.name || 'No file selected';
+        	document.getElementById('file-name').value = fileName;
+    	});
+	</script>
 </body>
 </html>

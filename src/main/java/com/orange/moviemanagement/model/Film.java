@@ -1,5 +1,7 @@
 package com.orange.moviemanagement.model;
 
+import java.util.List;
+
 public class Film {
     private int id;
     private String titre;
@@ -33,4 +35,11 @@ public class Film {
     public void setPoster(String poster) { this.poster = poster; }
     public int getRealisateurId() { return realisateurId; }
     public void setRealisateurId(int realisateurId) { this.realisateurId = realisateurId; }
+    private List<Acteur> acteurs;
+    public List<Acteur> getActeurs() {
+        return acteurs;
+    }
+    public void setActeurs(List<Acteur> acteurs) {
+        this.acteurs = acteurs;
+    }
 }
