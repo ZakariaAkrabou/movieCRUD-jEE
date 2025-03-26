@@ -44,9 +44,14 @@ public class FilmEditServlet extends HttpServlet {
             Film film = filmDAO.getFilmById(filmId);
             List<Acteur> acteurs = acteurDAO.getTousLesActeurs();
             List<Realisateur> realisateurs = realisateurDAO.getTousLesRealisateurs();
+            List<Integer> selectedActeurIds = new ArrayList<>();
+            for (Acteur acteur : film.getActeurs()) {
+                selectedActeurIds.add(acteur.getId());
+            }
             request.setAttribute("film", film);
             request.setAttribute("acteurs", acteurs);
             request.setAttribute("realisateurs", realisateurs);
+            request.setAttribute("selectedActeurIds",selectedActeurIds);
             request.getRequestDispatcher("/views/films/edit.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,7 +66,7 @@ public class FilmEditServlet extends HttpServlet {
         try {
             connection = DatabaseConnection.getConnection();
             connection.setAutoCommit(false); 
-            System.out.println("Autocommit set to false: " + connection.getAutoCommit());
+            
 
           
             String titre = request.getParameter("titre");

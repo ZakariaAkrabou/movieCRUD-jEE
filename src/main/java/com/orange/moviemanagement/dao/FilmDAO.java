@@ -102,45 +102,37 @@ public class FilmDAO {
     }
 
     public void modifierFilm(Film film, List<Integer> acteurIds) throws SQLException {
-        try {
-            connection.setAutoCommit(false); 
+        
+        
+       
+        String sqlFilm = "UPDATE film SET titre = ?, description = ?, genre = ?, annee_sortie = ?, poster = ?, realisateur_id = ? WHERE id = ?";
+        try (PreparedStatement stmtFilm = connection.prepareStatement(sqlFilm)) {
+            stmtFilm.setString(1, film.getTitre());
+            stmtFilm.setString(2, film.getDescription());
+            stmtFilm.setString(3, film.getGenre());
+            stmtFilm.setInt(4, film.getAnneeSortie());
+            stmtFilm.setString(5, film.getPoster());
+            stmtFilm.setInt(6, film.getRealisateurId());
+            stmtFilm.setInt(7, film.getId());
+            stmtFilm.executeUpdate();
+        }
 
-            
-            String sqlFilm = "UPDATE film SET titre = ?, description = ?, genre = ?, annee_sortie = ?, poster = ?, realisateur_id = ? WHERE id = ?";
-            try (PreparedStatement stmtFilm = connection.prepareStatement(sqlFilm)) {
-                stmtFilm.setString(1, film.getTitre());
-                stmtFilm.setString(2, film.getDescription());
-                stmtFilm.setString(3, film.getGenre());
-                stmtFilm.setInt(4, film.getAnneeSortie());
-                stmtFilm.setString(5, film.getPoster());
-                stmtFilm.setInt(6, film.getRealisateurId());
-                stmtFilm.setInt(7, film.getId());
-                stmtFilm.executeUpdate();
+      
+        String deleteFilmActeur = "DELETE FROM acteur_film WHERE film_id = ?";
+        try (PreparedStatement deleteStmt = connection.prepareStatement(deleteFilmActeur)) {
+            deleteStmt.setInt(1, film.getId());
+            deleteStmt.executeUpdate();
+        }
+
+       
+        String sqlFilmActeur = "INSERT INTO acteur_film (film_id, acteur_id) VALUES (?, ?)";
+        try (PreparedStatement stmtFilmActeur = connection.prepareStatement(sqlFilmActeur)) {
+            for (int acteurId : acteurIds) {
+                stmtFilmActeur.setInt(1, film.getId());
+                stmtFilmActeur.setInt(2, acteurId);
+                stmtFilmActeur.addBatch();
             }
-
-           
-            String deleteFilmActeur = "DELETE FROM acteur_film WHERE film_id = ?";
-            try (PreparedStatement deleteStmt = connection.prepareStatement(deleteFilmActeur)) {
-                deleteStmt.setInt(1, film.getId());
-                deleteStmt.executeUpdate();
-            }
-
-            String sqlFilmActeur = "INSERT INTO acteur_film (film_id, acteur_id) VALUES (?, ?)";
-            try (PreparedStatement stmtFilmActeur = connection.prepareStatement(sqlFilmActeur)) {
-                for (int acteurId : acteurIds) {
-                    stmtFilmActeur.setInt(1, film.getId());
-                    stmtFilmActeur.setInt(2, acteurId);
-                    stmtFilmActeur.addBatch();
-                }
-                stmtFilmActeur.executeBatch();
-            }
-
-            connection.commit(); 
-        } catch (SQLException e) {
-            connection.rollback(); 
-            throw e;
-        } finally {
-            connection.setAutoCommit(true);
+            stmtFilmActeur.executeBatch();
         }
     }
 
