@@ -7,9 +7,18 @@
     <title>Films Disponibles</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .glowing-title {
-            text-shadow: 0 0 10px #a855f7, 0 0 20px #9333ea, 0 0 30px #7e22ce;
-        }
+       @keyframes glowing {
+  0% { text-shadow: 0 0 5px #a855f7, 0 0 10px #9333ea, 0 0 15px #7e22ce; }
+  50% { text-shadow: 0 0 10px #9333ea, 0 0 20px #7e22ce, 0 0 30px #6b21a8; }
+  100% { text-shadow: 0 0 5px #a855f7, 0 0 10px #9333ea, 0 0 15px #7e22ce; }
+}
+
+.glowing-title {
+  animation: glowing 1.5s infinite alternate;
+}
+
+        
+        
     </style>
 </head>
 <body class="bg-gray-900 text-white p-6">

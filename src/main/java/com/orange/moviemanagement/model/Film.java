@@ -10,6 +10,7 @@ public class Film {
     private int anneeSortie;
     private String poster;
     private int realisateurId;
+    private List<Acteur> acteurs;
 
     public Film(int id, String titre, String description, String genre, int anneeSortie, String poster, int realisateurId) {
         this.id = id;
@@ -35,7 +36,7 @@ public class Film {
     public void setPoster(String poster) { this.poster = poster; }
     public int getRealisateurId() { return realisateurId; }
     public void setRealisateurId(int realisateurId) { this.realisateurId = realisateurId; }
-    private List<Acteur> acteurs;
+  
     public List<Acteur> getActeurs() {
         return acteurs;
     }
